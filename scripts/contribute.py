@@ -109,8 +109,8 @@ PROGRAMMING_QUOTES = [
         "author": "Paul Graham"
     },
     {
-        "quote": "Programs are meant to be read by humans and only incidentally for computers to execute.",
-        "author": "Donald Knuth"
+        "quote": "Controlling complexity is the essence of computer programming.",
+        "author": "Brian Kernighan"
     }
 ]
 
