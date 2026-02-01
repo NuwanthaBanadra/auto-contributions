@@ -6,9 +6,12 @@ An automated GitHub contribution system that generates commits **4 times per day
 
 > **Note:** This project is created for learning and practice purposes to understand GitHub Actions, automation workflows, and Python scripting.
 
+> **⚠️ IMPORTANT:** This repository **must be PUBLIC** for contributions to appear on your GitHub profile! Private repository contributions are not visible on your public contribution graph. See [Repository Visibility Requirements](#repository-visibility-requirements) for details.
+
 ## 📋 Table of Contents
 
 - [Overview](#overview)
+- [Repository Visibility Requirements](#repository-visibility-requirements)
 - [How It Works](#how-it-works)
 - [Features](#features)
 - [Setup Instructions](#setup-instructions)
@@ -16,6 +19,7 @@ An automated GitHub contribution system that generates commits **4 times per day
 - [Project Structure](#project-structure)
 - [Examples](#examples)
 - [Disabling/Enabling Automation](#disablingenabling-automation)
+- [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -27,6 +31,60 @@ This repository automatically commits programming wisdom and tech knowledge to m
 - **Generates unique content** from a collection of 25+ programming quotes and 25+ tech facts
 - **Commits to GitHub** with timestamps and formatted content
 - **Works completely hands-free** via GitHub Actions
+
+## 🔓 Repository Visibility Requirements
+
+### ⚠️ Your Repository MUST Be Public
+
+For this automation to work as intended and show contributions on your GitHub profile, **your repository must be public**. Here's why:
+
+#### Why Public Repository is Required:
+
+1. **Contribution Graph Visibility** 🟢
+   - GitHub's public contribution graph **only counts contributions from public repositories**
+   - Private repository contributions are hidden from your public profile
+   - Even if you own the private repo, those commits won't show as green squares on your profile
+
+2. **GitHub Actions Minutes** ⏱️
+   - Public repositories get **unlimited** GitHub Actions minutes
+   - Private repositories have limited minutes (2,000/month on free tier)
+   - Running 4 times daily = ~120 workflow runs/month, which uses significant minutes on private repos
+
+3. **Purpose of This Project** 🎯
+   - This tool is designed to maintain a visible, active contribution graph
+   - A private repository defeats this purpose entirely
+
+#### How to Make Your Repository Public:
+
+If your repository is currently private, follow these steps to make it public:
+
+1. Go to your repository on GitHub
+2. Click **Settings** (top right)
+3. Scroll down to the **Danger Zone** section (bottom of the page)
+4. Click **Change visibility**
+5. Select **Make public**
+6. Type the repository name to confirm
+7. Click **I understand, make this repository public**
+
+#### What About Privacy?
+
+- ✅ **Safe to make public:** This repository only contains:
+  - Automated workflow configuration
+  - Python script with quotes/facts
+  - Generated contribution JSON files
+  - No sensitive data or credentials
+
+- ⚠️ **Never commit:** 
+  - Personal information
+  - API keys or secrets
+  - Private code or proprietary information
+
+### Checking Your Repository Status
+
+To verify your repository is public:
+- Look for a **Public** label next to your repository name on GitHub
+- Public repos have an "open book" icon 📖
+- Private repos have a "lock" icon 🔒
 
 ## ⚙️ How It Works
 
@@ -94,26 +152,34 @@ All automated contributions are stored as individual JSON files in this director
 
 ### Prerequisites
 - A GitHub account
-- A GitHub repository (this one!)
+- A **PUBLIC** GitHub repository (this one!)
 - GitHub Actions enabled (free for public repositories)
+
+> **⚠️ CRITICAL:** Ensure your repository is **public** before proceeding! See [Repository Visibility Requirements](#repository-visibility-requirements) above.
 
 ### Quick Start
 
-1. **Fork or Clone this repository**
+1. **Verify Repository is Public** ⚠️
+   - Go to your repository on GitHub
+   - Check for the **Public** label next to the repository name
+   - If it shows **Private**, follow the instructions in [Repository Visibility Requirements](#repository-visibility-requirements) to make it public
+
+2. **Fork or Clone this repository**
    ```bash
    git clone https://github.com/NuwanthaBanadra/auto-contributions.git
    cd auto-contributions
    ```
 
-2. **Ensure GitHub Actions is enabled**
+3. **Ensure GitHub Actions is enabled**
    - Go to your repository's **Settings** → **Actions** → **General**
    - Under "Actions permissions", select "Allow all actions and reusable workflows"
    - Under "Workflow permissions", select "Read and write permissions"
    - Click "Save"
 
-3. **That's it!** 🎉
+4. **That's it!** 🎉
    - The workflow will run automatically every 6 hours
    - You can also trigger it manually from the Actions tab
+   - Verify contributions appear on your profile after the first run
 
 ### Manual Trigger
 
@@ -257,6 +323,48 @@ git rm .github/workflows/auto-commit.yml
 git commit -m "Disable auto contributions"
 git push
 ```
+
+## ❓ Troubleshooting
+
+### Contributions Not Showing on My Profile
+
+**Problem:** The workflow runs successfully, but I don't see green squares on my contribution graph.
+
+**Solution:** 
+1. ✅ **Check repository visibility:** Your repository MUST be public
+   - Go to Settings → scroll to "Danger Zone" → verify it says "Change repository visibility" with current status "Public"
+   - If it's private, see [Repository Visibility Requirements](#repository-visibility-requirements)
+
+2. ✅ **Wait for the next UTC day:** Contributions may take up to 24 hours to appear on your graph
+
+3. ✅ **Verify commits are being made:**
+   - Go to your repository
+   - Check the "Commits" section
+   - Look for commits from `github-actions[bot]`
+
+4. ✅ **Check workflow runs:**
+   - Go to Actions tab
+   - Verify recent runs show green checkmarks (successful)
+   - If red X appears, click to see error details
+
+### Workflow Fails with Permission Error
+
+**Problem:** Workflow runs but fails at the "Commit and push changes" step.
+
+**Solution:**
+1. Go to Settings → Actions → General → Workflow permissions
+2. Select "Read and write permissions"
+3. Click "Save"
+4. Re-run the failed workflow from the Actions tab
+
+### Running Out of GitHub Actions Minutes
+
+**Problem:** "You have exceeded your GitHub Actions minutes."
+
+**Solution:**
+- This should NOT happen with public repositories (unlimited minutes)
+- If you see this error, verify your repository is **public**, not private
+- Private repos have limited minutes; making it public solves this
 
 ## 🤝 Contributing
 
