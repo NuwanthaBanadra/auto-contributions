@@ -337,10 +337,11 @@ git push
 
 2. ✅ **Wait for the next UTC day:** Contributions may take up to 24 hours to appear on your graph
 
-3. ✅ **Verify commits are being made:**
+3. ✅ **Verify commits are attributed to you, not a bot:**
    - Go to your repository
    - Check the "Commits" section
-   - Look for commits from `github-actions[bot]`
+   - Look for commits from your username (not `github-actions[bot]`)
+   - Commits by bots don't count toward your contribution graph
 
 4. ✅ **Check workflow runs:**
    - Go to Actions tab
