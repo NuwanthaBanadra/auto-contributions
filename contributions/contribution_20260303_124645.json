@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-03-03T12:46:45.783880",
+  "content": {
+    "type": "fact",
+    "text": "The average programmer makes 100-150 errors per 1,000 lines of code.",
+    "category": "Development"
+  }
+}
