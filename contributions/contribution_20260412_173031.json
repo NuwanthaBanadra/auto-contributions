@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-04-12T17:30:31.847855",
+  "content": {
+    "type": "fact",
+    "text": "The first version of Git was created by Linus Torvalds in just 10 days.",
+    "category": "Tools"
+  }
+}
