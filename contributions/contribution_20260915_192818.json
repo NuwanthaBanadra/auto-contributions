@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-09-15T19:28:18.719559",
+  "content": {
+    "type": "fact",
+    "text": "Python uses indentation to define code blocks, making it unique among major programming languages.",
+    "category": "Programming Languages"
+  }
+}
